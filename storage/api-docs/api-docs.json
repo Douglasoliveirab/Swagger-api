@@ -1,0 +1,101 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentação API Dewtech",
+        "description": "API de cadastramento de usuários e Autênticação",
+        "contact": {
+            "name": "Dewtech",
+            "url": "https://www.dewtech.io",
+            "email": "wanderson@dewtech.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/newusers": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Cadastrar um novo usuário",
+                "description": "Este endpoint cria um novo usuário no sistema",
+                "operationId": "bbf58effc488d3752d49f87675725f7d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Nome do usuário",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Email do usuário",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Senha do usuário",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID do usuário",
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "description": "Nome do usuário",
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "description": "Email do usuário",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Dados inválidos",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Mensagem de erro",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "User"
+        }
+    ]
+}

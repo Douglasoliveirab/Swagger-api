@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_newsdb
+    restart: always
+    ports:
+      - "5433:5432"  
+    environment:
+      POSTGRES_USER: dgnews
+      POSTGRES_PASSWORD: news199506
+      POSTGRES_DB: newsdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
