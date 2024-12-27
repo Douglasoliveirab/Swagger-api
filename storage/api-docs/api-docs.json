@@ -1,28 +1,101 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Documentação API Dewtech",
+        "title": "Documentação API Dg News",
         "description": "API de cadastramento de usuários e Autênticação",
-        "contact": {
-            "name": "Dewtech",
-            "url": "https://www.dewtech.io",
-            "email": "wanderson@dewtech.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
         "version": "1.0.0"
     },
     "paths": {
-        "/api/newusers": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login usuário",
+                "description": "Este endpoint efetua login no sistema",
+                "operationId": "1b9be0664655d22325f70e8c8d7d0bc7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Email do usuário",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Senha do usuário",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário logado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "description": "Detalhes do usuário",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "ID do usuário",
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "description": "Nome do usuário",
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "description": "Email do usuário",
+                                                    "type": "string"
+                                                },
+                                                "email_verified_at": {
+                                                    "description": "Data de verificação do email",
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "nullable": true
+                                                },
+                                                "created_at": {
+                                                    "description": "Data de criação do usuário",
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "updated_at": {
+                                                    "description": "Data de atualização do usuário",
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "token": {
+                                            "description": "Token de autenticação do usuário",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Cadastrar um novo usuário",
                 "description": "Este endpoint cria um novo usuário no sistema",
-                "operationId": "bbf58effc488d3752d49f87675725f7d",
+                "operationId": "089999749fbdec98922de2f74ba8d540",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -40,6 +113,10 @@
                                     "password": {
                                         "description": "Senha do usuário",
                                         "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Comfirme a senha do usuário",
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -49,28 +126,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Usuário criado com sucesso",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "description": "ID do usuário",
-                                            "type": "integer"
-                                        },
-                                        "name": {
-                                            "description": "Nome do usuário",
-                                            "type": "string"
-                                        },
-                                        "email": {
-                                            "description": "Email do usuário",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "description": "Usuário criado com sucesso"
                     },
                     "400": {
                         "description": "Dados inválidos",
@@ -93,6 +149,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Login",
+            "description": "Login"
+        },
         {
             "name": "User",
             "description": "User"
