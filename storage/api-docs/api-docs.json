@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Documentação API Dg News",
-        "description": "API de cadastramento de usuários e Autênticação",
+        "description": "API de cadastramento de usuários e autenticação",
         "version": "1.0.0"
     },
     "paths": {
@@ -88,14 +88,14 @@
                 }
             }
         },
-        "/api/user": {
+        "/api/newUser": {
             "post": {
                 "tags": [
                     "User"
                 ],
                 "summary": "Cadastrar um novo usuário",
                 "description": "Este endpoint cria um novo usuário no sistema",
-                "operationId": "089999749fbdec98922de2f74ba8d540",
+                "operationId": "a1022a821bd0438bc41a94a027cd09e0",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -126,7 +126,28 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Usuário criado com sucesso"
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "description": "ID do usuário",
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "description": "Nome do usuário",
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "description": "Email do usuário",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Dados inválidos",
@@ -144,7 +165,22 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Insira o token JWT no campo de autorização. Formato: 'Bearer {token}'",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
             }
         }
     },
