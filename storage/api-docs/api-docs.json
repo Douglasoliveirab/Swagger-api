@@ -131,16 +131,8 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
-                                            "description": "ID do usuário",
-                                            "type": "integer"
-                                        },
-                                        "name": {
-                                            "description": "Nome do usuário",
-                                            "type": "string"
-                                        },
-                                        "email": {
-                                            "description": "Email do usuário",
+                                        "message": {
+                                            "description": "Usuário criado com sucesso",
                                             "type": "string"
                                         }
                                     },
