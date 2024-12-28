@@ -5,7 +5,7 @@ return [
     'documentations' => [
         'default' => [
             'api' => [
-                'title' => 'Api sitepedidos',
+                'title' => 'Swagger + laravel api',
             ],
 
             'routes' => [

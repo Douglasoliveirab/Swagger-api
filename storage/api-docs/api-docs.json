@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Documentação API Dg News",
-        "description": "API de cadastramento de usuários e autenticação",
+        "title": "Documentação API",
+        "description": "API com sanctum + Laravel + L5-swagger",
         "version": "1.0.0"
     },
     "paths": {
@@ -148,7 +148,7 @@
                                 "schema": {
                                     "properties": {
                                         "message": {
-                                            "description": "Mensagem de erro",
+                                            "description": "Dados inválidos",
                                             "type": "string"
                                         }
                                     },

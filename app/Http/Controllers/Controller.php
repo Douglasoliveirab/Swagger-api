@@ -10,8 +10,8 @@ use OpenApi\Annotations as OA;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Documentação API Dg News",
- *      description="API de cadastramento de usuários e autenticação",
+ *      title="Documentação API",
+ *      description="API com sanctum + Laravel + L5-swagger",
  * )
  * 
  * @OA\SecurityScheme(

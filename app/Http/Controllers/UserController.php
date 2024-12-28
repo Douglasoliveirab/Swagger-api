@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UserService;
 use Illuminate\Http\Request;
-use App\Models\User;
 use OpenApi\Annotations as OA;
-
 class UserController extends Controller
 {
+    private userService $userService;
+
+    // Injeção de Dependência do UserService
+    public function __construct(userService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * @OA\Post(
      *     path="/api/newUser",
@@ -25,7 +32,7 @@ class UserController extends Controller
      *             @OA\Property(property="password_confirmation", type="string", description="Comfirme a senha do usuário")
      *         )
      *     ),
-     *         * @OA\Response(
+     *     @OA\Response(
      *         response=201,
      *         description="Usuário criado com sucesso",
      *         @OA\JsonContent(
@@ -45,21 +52,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
+        // Validação dos dados recebidos na requisição
+       $user =  $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $user = User::create([
+        // Chamada ao serviço para criar o usuário
+        $message = $this->userService->createUser([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => $request->password,
         ]);
 
+        // Retorna a mensagem de sucesso ou erro
         return response()->json([
-            'message' => 'Usuário criado com sucesso'
+            'message' => $message
         ], 201);
     }
 }
