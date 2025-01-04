@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\user\StoreUserRequest;
 use App\Services\UserService;
-use Illuminate\Http\Request;
 use OpenApi\Annotations as OA;
 class UserController extends Controller
 {
     private userService $userService;
 
-    // Injeção de Dependência do UserService
     public function __construct(userService $userService)
     {
         $this->userService = $userService;
@@ -50,25 +49,17 @@ class UserController extends Controller
      *     )
      * )
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        // Validação dos dados recebidos na requisição
-       $user =  $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
 
-        // Chamada ao serviço para criar o usuário
+        $request->validated();
+
         $message = $this->userService->createUser([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
         ]);
 
-        // Retorna a mensagem de sucesso ou erro
-        return response()->json([
-            'message' => $message
-        ], 201);
+        return response()->json(['message' => $message], 201);
     }
 }
