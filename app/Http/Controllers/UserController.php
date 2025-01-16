@@ -47,7 +47,7 @@ class UserController extends Controller
      *             @OA\Property(property="message", type="string", description="Dados inválidos")
      *         )
      *     )
-     * )
+     * )Dghumanittare.2024
      */
     public function store(StoreUserRequest $request)
     {
