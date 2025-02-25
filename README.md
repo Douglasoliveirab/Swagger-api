@@ -1,94 +1,105 @@
-API Laravel com Swagger e JWT
+## API Laravel com Swagger e JWT
 
-Sobre o Projeto
+<p align="center">
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  </a>
+</p>
 
-Esta é uma API desenvolvida em Laravel com as seguintes tecnologias e funcionalidades:
+<p align="center">
+  <a href="https://github.com/laravel/framework/actions">
+    <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
+  </a>
+</p>
 
-Documentação interativa com Swagger
+## Sobre o Projeto
 
-Autenticação via JWT (JSON Web Token)
+Este projeto é uma API desenvolvida em Laravel, utilizando JWT para autenticação e Swagger para documentação da API.
 
-Estrutura preparada para desenvolvimento de API RESTful
+### Tecnologias Utilizadas
 
-Ambiente pronto para execução local e em produção
+- [Laravel](https://laravel.com)
+- [JWT Authentication](https://jwt.io)
+- [Swagger para documentação](https://swagger.io)
+- Banco de Dados PostgreSQL
 
-Tecnologias Utilizadas
+## Instalação
 
-PHP 8+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
 
-Laravel 10+
+2. Acesse a pasta do projeto:
+   ```sh
+   cd seu-repositorio
+   ```
 
-JWT Auth para autenticação
+3. Instale as dependências do Laravel:
+   ```sh
+   composer install
+   ```
 
-Swagger/OpenAPI para documentação
+4. Copie o arquivo `.env.example` para `.env`:
+   ```sh
+   cp .env.example .env
+   ```
 
-MySQL/PostgreSQL (banco de dados configurável)
+5. Configure as credenciais do banco de dados no `.env`.
 
-Docker (opcional)
+6. Gere a chave da aplicação:
+   ```sh
+   php artisan key:generate
+   ```
 
-Instalação e Configuração
+7. Execute as migrations:
+   ```sh
+   php artisan migrate
+   ```
 
-Clone o repositório:
+8. Gere a chave secreta do JWT:
+   ```sh
+   php artisan jwt:secret
+   ```
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+9. Inicie o servidor:
+   ```sh
+   php artisan serve
+   ```
 
-Instale as dependências via Composer:
+## Documentação da API
 
-composer install
-
-Configure o arquivo .env:
-
-cp .env.example .env
-php artisan key:generate
-
-Configure o banco de dados no .env e execute as migrações:
-
-php artisan migrate --seed
-
-Gere a chave JWT:
-
-php artisan jwt:secret
-
-Inicie o servidor:
-
-php artisan serve
-
-Documentação da API
-
-A documentação interativa da API pode ser acessada após iniciar o servidor, na seguinte rota:
-
+A documentação da API pode ser acessada via Swagger no seguinte endpoint:
+```
 http://localhost:8000/api/documentation
+```
 
-Autenticação via JWT
+## Autenticação com JWT
 
-Obter Token
+Para autenticar, utilize o endpoint de login fornecendo email e senha. Você receberá um token JWT, que deve ser utilizado no cabeçalho `Authorization` das requisições subsequentes:
+```sh
+Authorization: Bearer SEU_TOKEN_JWT
+```
 
-POST /api/auth/login
+## Contribuindo
 
-Body:
+Contribuições são bem-vindas! Para contribuir, siga os passos:
 
-{
-  "email": "usuario@exemplo.com",
-  "password": "senha123"
-}
+1. Fork o projeto
+2. Crie uma branch para sua feature: `git checkout -b minha-feature`
+3. Commit suas alterações: `git commit -m 'Minha nova feature'`
+4. Push para a branch: `git push origin minha-feature`
+5. Abra um Pull Request
 
-Acessar Rota Protegida
+## Licença
 
-Inclua o token no header Authorization:
-
-Authorization: Bearer {seu_token_aqui}
-
-Testes
-
-Para rodar os testes:
-
-php artisan test
-
-Contribuição
-
-Pull requests são bem-vindos. Para maiores detalhes, consulte a documentação do Laravel.
-
-Licença
-
-Este projeto está licenciado sob a MIT License.
+Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
