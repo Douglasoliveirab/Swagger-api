@@ -35,7 +35,7 @@ Este projeto é uma API desenvolvida em Laravel, utilizando JWT para autenticaç
 
 1. Clone o repositório:
    ```sh
-   git clone git@github.com:Douglasoliveirab/Swagger.git
+   git clone https://github.com/Douglasoliveirab/Swagger.git
    ```
 
 2. Acesse a pasta do projeto:
