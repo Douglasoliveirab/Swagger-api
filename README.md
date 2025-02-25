@@ -30,7 +30,6 @@ Este projeto é uma API desenvolvida em Laravel, utilizando JWT para autenticaç
 - [Laravel](https://laravel.com)
 - [JWT Authentication](https://jwt.io)
 - [Swagger para documentação](https://swagger.io)
-- Banco de Dados PostgreSQL
 
 ## Instalação
 
