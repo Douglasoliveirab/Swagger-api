@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\user\StoreUserRequest;
-use App\Services\UserService;
+use App\Http\Services\UserService;
 use OpenApi\Annotations as OA;
 class UserController extends Controller
 {
@@ -39,15 +39,7 @@ class UserController extends Controller
      *             @OA\Property(property="message", type="string", description="Usuário criado com sucesso")
      *         )
      *     ),
-     *     @OA\Response(
-     *         response=400,
-     *         description="Dados inválidos",
-     *         @OA\JsonContent(
-     *             type="object",
-     *             @OA\Property(property="message", type="string", description="Dados inválidos")
-     *         )
-     *     )
-     * )Dghumanittare.2024
+     * )
      */
     public function store(StoreUserRequest $request)
     {

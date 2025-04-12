@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Http\Services;
 
-use App\Repositories\UserRepository;
-
+use App\Http\Repositories\UserRepository;
 class UserService
 {
     public function __construct(private UserRepository $userRepository) {}

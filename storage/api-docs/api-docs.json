@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Documentação API",
+        "title": "Douglas Swagger API",
         "description": "API com sanctum + Laravel + L5-swagger",
         "version": "1.0.0"
     },
@@ -133,22 +133,6 @@
                                     "properties": {
                                         "message": {
                                             "description": "Usuário criado com sucesso",
-                                            "type": "string"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Dados inválidos",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "description": "Dados inválidos",
                                             "type": "string"
                                         }
                                     },

@@ -10,7 +10,7 @@ use OpenApi\Annotations as OA;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Documentação API",
+ *      title="Douglas Swagger API",
  *      description="API com sanctum + Laravel + L5-swagger",
  * )
  * 
