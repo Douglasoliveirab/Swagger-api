@@ -10,17 +10,16 @@ use OpenApi\Annotations as OA;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Documentação API Dg News",
- *      description="API de cadastramento de usuários e Autênticação",
- *      @OA\Contact(
- *          email="douglasoliveirabeserradev@dewtech.io",
- *          name="Dewtech",
- *          url="https://www.dewtech.io"
- *      ),
- *      @OA\License(
- *          name="Apache 2.0",
- *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
- *      )
+ *      title="Documentação API",
+ *      description="API com sanctum + Laravel + L5-swagger",
+ * )
+ * 
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      type="http",
+ *      scheme="bearer",
+ *      bearerFormat="JWT",
+ *      description="Insira o token JWT no campo de autorização. Formato: 'Bearer {token}'"
  * )
  */
 class Controller extends BaseController
